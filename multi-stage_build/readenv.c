@@ -4,5 +4,5 @@
 int main()
 {
     const char* value = getenv("FOOBAR");
-    printf("FOOBAR: %s\n", value);
+    printf("%s\n", value);
 }
