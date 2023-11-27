@@ -1,10 +1,10 @@
 ## Environment Variables
 
-```bash
+```
 cd environment_variables 
 ```
 
-docker run `--env | -e` Set environment variables
+docker run `--env` or `-e` Set environment variables
 ```
 docker run -it --rm -e FOOBAR=1234 -v $(pwd)/readenv.py:/readenv.py python:3.9 python3 readenv.py
 ```
