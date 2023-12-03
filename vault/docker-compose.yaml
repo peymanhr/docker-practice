@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+    vault:
+        container_name: vault
+        build: .
+        volumes:
+          - ./data:/data:consistent
+        network_mode: none
+        stdin_open: true
+        tty: true
+        environment:
+          - PASSPHRASE=$PASS
+
