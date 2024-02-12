@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  db1:
+    image: "mysql:8.2"
+    container_name: wp_db
+    restart: always
+    env_file:
+      - db_config
+    volumes:
+      - wp_db:/var/lib/mysql
+    networks:
+      - wordpress
+
+  wordpress:
+    image: "wordpress:php8.2"
+    container_name: wordpress
+    restart: always
+    ports:
+      - 80:80
+    env_file:
+      - wp_config
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - wordpress 
+    depends_on:
+      - db1
+
+volumes:
+  wp_db:
+  wordpress:
+
+networks:
+  wordpress:
